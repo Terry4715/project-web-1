@@ -1,0 +1,1 @@
+web: gunicorn "project/__init__.py:create_app()"
