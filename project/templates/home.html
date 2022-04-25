@@ -1,4 +1,656 @@
-Hello, World!
-<br>
-<br>
-This is a test to see how easy an update to Heroku is!
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sustaianable Multi Asset Fund</title>
+    <!-- load the d3.js library -->	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+    <style>
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+	.node {
+		cursor: pointer;
+	}
+
+	.node circle {
+	  fill: #fff;
+	  stroke: steelblue;
+	  stroke-width: 3px;
+	}
+
+	.node text {
+	  font: 12px sans-serif;
+      font-weight: bold;
+	}
+
+	.link {
+	  fill: none;
+	  stroke: rgb(228, 224, 224);
+	  stroke-width: 2px;
+	}
+	
+    </style>
+  </head>
+
+  <body>
+    <main>
+        <h1>Sustainable Multi Asset Fund</h1>
+
+        <section id="treeflow">
+            
+            <script>
+
+            var treeData = [
+            {
+                "name": "Sustaianable Multi Asset Fund",
+                "parent": "null",
+                "children": [
+                {
+                    "name": "ASI Sustainable Index World Equity Fund | 59.84%",
+                    "parent": "Sustaianable Multi Asset Growth Fund",
+                    "children": [
+                    {
+                        "name": "Stock A",
+                        "parent": "ASI Sustainable Index World Equity Fund",
+                        "children": [
+                            {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock A"
+                            }
+                                    ]
+                    },
+                    {
+                        "name": "Stock B",
+                        "parent": "ASI Sustainable Index World Equity Fund",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                    }
+                                ]
+                    },
+                {
+                    "name": "ASI Sterling Corporate Bond Tracker Fund | 10%",
+                    "parent": "Sustaianable Multi Asset Growth Fund",
+                    "children": [
+                    {
+                        "name": "Stock A",
+                        "parent": "ASI Sterling Corporate Bond Tracker Fund",
+                        "children": [
+                            {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock A"
+                            }
+                                    ]
+                    },
+                    {
+                        "name": "Stock B",
+                        "parent": "ASI Sterling Corporate Bond Tracker Fund",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                    }
+                                ]
+                },
+                {
+                    "name": "Global Property Securities Asset Fund | 8%",
+                    "parent": "Sustaianable Multi Asset Growth Fund",
+                    "children": [
+                    {
+                        "name": "Stock A",
+                        "parent": "Global Property Securities Asset Fund",
+                        "children": [
+                            {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock A"
+                            }
+                                    ]
+                    },
+                    {
+                        "name": "Stock B",
+                        "parent": "Global Property Securities Asset Fund",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                    }
+                                ]
+                },
+                {
+                    "name": "Vanguard Emerging Markets Stock Index Fund | 7.6%",
+                    "parent": "Sustaianable Multi Asset Growth Fund",
+                    "children": [
+                    {
+                        "name": "Stock A",
+                        "parent": "Vanguard Emerging Markets Stock Index Fund",
+                        "children": [
+                            {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock A"
+                            }
+                                    ]
+                    },
+                    {
+                        "name": "Stock B",
+                        "parent": "Vanguard Emerging Markets Stock Index Fund",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                    }
+                                ]
+                },
+                {
+                    "name": "ASI Global Corporate Bond Tracker Fund | 7%",
+                    "parent": "Sustaianable Multi Asset Growth Fund",
+                    "children": [
+                    {
+                        "name": "Stock A",
+                        "parent": "ASI Global Corporate Bond Tracker Fund",
+                        "children": [
+                            {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock A"
+                            }
+                                    ]
+                    },
+                    {
+                        "name": "Stock B",
+                        "parent": "ASI Global Corporate Bond Tracker Fund",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                    }
+                                ]
+                },
+                {
+                    "name": "ASI Sustainable Index UK Equity Fund | 4.56%",
+                    "parent": "Sustaianable Multi Asset Growth Fund",
+                    "children": [
+                    {
+                        "name": "Stock A",
+                        "parent": "ASI Sustainable Index UK Equity Fund",
+                        "children": [
+                            {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock A"
+                            }
+                                    ]
+                    },
+                    {
+                        "name": "Stock B",
+                        "parent": "ASI Sustainable Index UK Equity Fund",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                    }
+                                ]
+                },
+                {
+                    "name": "ASI Global Inflation-linked Bond Tracker Fund | 3%",
+                    "parent": "Sustaianable Multi Asset Growth Fund",
+                    "children": [
+                    {
+                        "name": "Stock A",
+                        "parent": "ASI Global Inflation-linked Bond Tracker Fund",
+                        "children": [
+                            {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock A"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock A"
+                            }
+                                    ]
+                    },
+                    {
+                        "name": "Stock B",
+                        "parent": "ASI Global Inflation-linked Bond Tracker Fund",
+                        "children": [
+                        {
+                                "name": "Sector: Consumer Cyclicals",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "ISIN: US-000402625-0",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Environmental Score: 92",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Social Score: 88",
+                                "parent": "Stock B"
+                            },
+                            {
+                                "name": "Governance Score: 81",
+                                "parent": "Stock B"
+                            }
+                                    ]
+                    }
+                                ]
+                }
+                ]
+            }
+            ];
+
+
+            // ************** Generate the tree diagram	 ***************** originally width = 960 height = 500
+            var margin = {top: 20, right: 200, bottom: 20, left: 200},
+                width = 1600 - margin.right - margin.left, 
+                height = 600 - margin.top - margin.bottom;
+                
+            var i = 0,
+                duration = 750,
+                root;
+
+            var tree = d3.layout.tree()
+                .separation(function separation(a, b) {return a.parent == b.parent ? 1 : 3})
+                .size([height, width]);
+
+            // this is the lines connecting nodes
+            var diagonal = d3.svg.diagonal()
+                .projection(function(d) { return [d.y, d.x]; });
+
+            var svg = d3.select("#treeflow").append("svg")
+                .attr("width", width + margin.right + margin.left)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            root = treeData[0];
+            root.x0 = height / 2;
+            root.y0 = 0;
+
+            // code to start with collapsed tree children
+            function collapse(d) {
+                if (d.children) {
+                d._children = d.children;
+                d._children.forEach(collapse);
+                d.children = null;
+                }
+            }
+
+            root.children.forEach(collapse);
+
+            update(root);
+
+            d3.select(self.frameElement).style("height", "600px");
+
+            function update(source) {
+
+            // Compute the new tree layout.
+            var nodes = tree.nodes(root).reverse(),
+                links = tree.links(nodes);
+
+            // Normalize for fixed-depth, this changes the length of the lines that link nodes
+            // nodes.forEach(function(d) { d.y = d.depth * 180; });
+            root.children.forEach(function(d) { d.y = d.depth * 380; });
+
+            // Update the nodes…
+            var node = svg.selectAll("g.node")
+                .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+            // Enter any new nodes at the parent's previous position.
+            var nodeEnter = node.enter().append("g")
+                .attr("class", "node")
+                .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+                .on("click", click);
+
+            nodeEnter.append("circle")
+                .attr("r", 1e-6)
+                .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+            nodeEnter.append("text")
+                .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
+                .attr("dy", ".35em")
+                .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+                .text(function(d) { return d.name; })
+                .style("fill-opacity", 1e-6);
+
+            // Transition nodes to their new position.
+            var nodeUpdate = node.transition()
+                .duration(duration)
+                .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+            nodeUpdate.select("circle")
+                .attr("r", 10)
+                .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+            nodeUpdate.select("text")
+                .style("fill-opacity", 1);
+
+            // Transition exiting nodes to the parent's new position.
+            var nodeExit = node.exit().transition()
+                .duration(duration)
+                .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+                .remove();
+
+            nodeExit.select("circle")
+                .attr("r", 1e-6);
+
+            nodeExit.select("text")
+                .style("fill-opacity", 1e-6);
+
+            // Update the links…
+            var link = svg.selectAll("path.link")
+                .data(links, function(d) { return d.target.id; });
+
+            // Enter any new links at the parent's previous position.
+            link.enter().insert("path", "g")
+                .attr("class", "link")
+                .attr("d", function(d) {
+                    var o = {x: source.x0, y: source.y0};
+                    return diagonal({source: o, target: o});
+                });
+
+            // Transition links to their new position.
+            link.transition()
+                .duration(duration)
+                .attr("d", diagonal);
+
+            // Transition exiting nodes to the parent's new position.
+            link.exit().transition()
+                .duration(duration)
+                .attr("d", function(d) {
+                    var o = {x: source.x, y: source.y};
+                    return diagonal({source: o, target: o});
+                })
+                .remove();
+
+            // Stash the old positions for transition.
+            nodes.forEach(function(d) {
+                d.x0 = d.x;
+                d.y0 = d.y;
+            });
+            }
+
+            // Toggle children on click.
+            function click(d) {
+            if (d.children) {
+                d._children = d.children;
+                d.children = null;
+            } else {
+                d.children = d._children;
+                d._children = null;
+            }
+            update(d);
+            }
+
+            </script>
+        </section>
+    </main>
+	
+  </body>
+</html>
