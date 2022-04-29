@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 
 app = Flask(__name__)
 
@@ -7,26 +7,29 @@ projects = [
         "name": "Minbaingu website built with Wordpress",
         "thumb": "img/minbaringu.png",
         "hero": "img/minbaringu.png",
-        "categories": ["python", "web"],
-        "slug": "habit-tracking",
-        "prod": "https://udemy.com"
+        "categories": ["wordpress", "web"],
+        "slug": "minbaringu",
+        "prod": "https://www.minbaringu.com.au/"
     },
     {
         "name": "Broken Universe Comics website built with Wordpress",
         "thumb": "img/broken-universe-comics.png",
         "hero": "img/broken-universe-comics.png",
-        "categories": ["react", "javascript"],
-        "slug": "personal-finance"
+        "categories": ["wordpress", "web"],
+        "slug": "broken-universe-comics",
+        "prod": "https://brokenuniversecomics.com/"
     },
     {
         "name": "Polton Inn Pub website built with Wordpress",
         "thumb": "img/polton-inn-pub.png",
         "hero": "img/polton-inn-pub.png",
-        "categories": ["writing"],
-        "slug": "api-docs"
+        "categories": ["wordpress", "web"],
+        "slug": "polton-inn-pub",
+        "prod": "https://poltonpub.co.uk/"
     }
 ]
 
+slug_to_project = {project['slug']: project for project in projects}
 
 @app.route("/")
 def home():
@@ -40,3 +43,8 @@ def about():
 def contact():
     return render_template("contact.html")
 
+@app.route("/<string:slug>")
+def project(slug):
+    if slug not in slug_to_project:
+        abort(404)
+    return render_template(f"project_{slug}.html", project=slug_to_project[slug])
