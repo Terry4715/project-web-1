@@ -1,1 +1,15 @@
 {% extends "base.html" %}
+
+{% block content %}
+<main class="main main--home">
+    <section class="projects">
+        {% for project in projects %}
+            <a class="u-bare-link" href="#">
+                <article class="project-card">
+                    <img class="project-card__image" src="{{ url_for('static', filename=project['thumb']) }}"
+                </article>
+            </a>
+        {% endfor %}
+    </section>
+</main>
+{% endblock %}
